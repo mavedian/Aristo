@@ -21,10 +21,10 @@ const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
 app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://*.framer.com;");
+    res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://framer.com https://framerusercontent.com https://*.framer.com https://*.framerusercontent.com;");
     next();
   });
-
+  
 app.post('/submit', (req, res) => {
     console.log(req.body); // Affiche tout le corps de la requête
     console.log(req.body.personalInfo);

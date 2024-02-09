@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body { font-family: 'satoshi', sans-serif; }
+				.button-group {
+			    display: flex;
+			    justify-content: space-between; /* Espacer uniformément les boutons */
+			    margin-top: 1rem; /* Espace au-dessus du groupe de boutons */
+			}			
+	.back-btn {
+				    display: inline-flex; /* ou `flex` selon votre mise en page */
+				    align-items: center;
+				    justify-content: center;
+				    padding: 8px 20px;
+				    font-size: 0.875rem; /* 14px */
+				    line-height: 1.25rem; /* 20px */
+				    color: #555; /* Couleur du texte */
+				    background-color: transparent;
+				    border-radius: 9999px;
+				    transition: all 0.3s ease-in-out;
+				    margin-right: 10px; /* Espace entre les boutons Back et Next */
+				}
+				
+				.back-btn:hover {
+				    background-color: #ddd; /* Légère couleur de fond au survol */
+				    color: #333; /* Couleur du texte au survol */
+				}
+				
+        .btn { 
+            background-color: transparent;
+            color: black;
+            border: 1px solid #D9CAA7; 
+            border-radius: 9999px; 
+            padding: 8px 20px; 
+            font-size: 0.6rem; /* 10px */
+            line-height: 1 rem; /* 16px */
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-active { 
+            background-image: linear-gradient(90deg, #FF833D, #EA4151);
+            color: white; 
+            border: none;
+        }
+		.form-label {
+			font-weight: bold; /* Met le texte en gras */
+			font-size: 1 rem; /* Augmente la taille de la police */
+			/*margin-bottom: 0.5rem; /* Espace en dessous des labels */
+		}
+
+
+			
+			.form-control {
+			    /*font-weight: bold; /* Met le texte en gras pour les sélections */
+			    /*font-size: 1.25rem; /* Augmente la taille de la police pour les sélections */
+			    padding: 0.75rem; /* Padding intérieur plus grand pour les sélections */
+			    border: 1px solid #D9CAA7; /* Bordure des sélections */
+			    border-radius: 0.5rem; /* Bordures arrondies pour les sélections */
+			    margin-bottom: 1rem; /* Espace en dessous des sélections */
+			}
+						/* Réduire l'espace au-dessus du bouton "Submit" */
+			#contactForm .mb-6 {
+			    margin-bottom: 1rem; /* Réduire la marge au besoin */
+			}
+			
+			/* Réduire la taille des champs de texte */
+			#contactForm input[type="text"],
+			#contactForm input[type="email"],
+			#contactForm input[type="tel"],
+			#contactForm textarea {
+			    height: 2.5rem; /* Réduire la hauteur pour les input */
+			    padding: 0.4rem 0.75rem; /* Réduire le padding intérieur */
+			    font-size: 0.875rem; /* Ajuster la taille de police si nécessaire */
+			}
+
+			#contactForm textarea {
+			    height: auto; /* Ou définir une hauteur fixe plus petite */
+			    padding: 0.4rem 0.75rem; /* Ajuster le padding pour conserver la proportion */
+			}
+		
+        .next-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 8px 20px;
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            color: #FF833D; /* orange */
+            background-color: transparent;
+            border-radius: 9999px;
+            transition: all 0.3s ease-in-out;
+        }
+        .next-btn:hover {
+            background-color: #FF833D;
+            color: white;
+        }
+        .container {
+            max-width: 24rem; /* 384px */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+				#sector {
+    margin-bottom: 2rem; /* ajustez la valeur de marge comme nécessaire */
+}
+				.form-label + .form-control {
+    margin-bottom: 2rem; /* ajustez la valeur de marge comme nécessaire */
+}
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Page 1-->
+    <div id="variant-1" class="container">
+        <div class="flex flex-col gap-2 mb-5">
+            <!-- Boutons avec gestion du toggle pour les intérêts -->
+            <button type="button" class="btn" onclick="toggle(this)">HEALTH CARE</button>
+            <button type="button" class="btn" onclick="toggle(this)">DATA ANALYSIS</button>
+            <button type="button" class="btn" onclick="toggle(this)">CUSTOMER JOURNEY</button>
+            <button type="button" class="btn" onclick="toggle(this)">USER TRAINING</button>
+            <button type="button" class="btn" onclick="toggle(this)">SEO</button>
+        </div>
+        <div>
+            <button type="button" class="next-btn" onclick="collectDataAndGoToVariant('variant-2')">NEXT <i class="fas fa-arrow-right ml-2"></i></button>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="variant-2" class="container" style="display: none;">
+        <div class="mb-5">
+            <!-- Sélections pour le secteur et le nombre d'employés -->
+            <label for="sector" class="form-label">Life Science sector</label>
+            <select id="sector" class="form-control mb-4">
+                <option>Dermocosmetics</option>
+                <option>Metier 2</option>
+                <option>Metier 3</option>
+                <!-- Autres options ici -->
+            </select>
+				</div>
+
+				<div class="mb-5">
+            <label for="employees" class="form-label">Number of employees</label>
+            <select id="employees" class="form-control mb-4">
+                <option>1 to 50</option>
+                <option>50 to 100</option>
+                <option>100 to 500</option>
+                <option>more than 500</option>
+                <!-- Autres options ici -->
+            </select>
+        </div>
+				<div class="button-group">
+					<button type="button" class="back-btn" onclick="goToVariant('variant-1')">Back</button>
+	        <button type="button" class="next-btn" onclick="goToVariant('variant-3')">NEXT <i class="fas fa-arrow-right ml-2"></i></button>
+				</div>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="variant-3" class="container" style="display: none;">
+        <div id="formContent">
+        <!-- Formulaire pour la saisie des informations de contact -->
+        <form id="contactForm">
+            <div class="mb-4">
+                <div class="flex gap-4">
+                    <input type="text" name="firstName" placeholder="First Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
+                    <input type="text" name="lastName" placeholder="Last Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <input type="email" name="mail" placeholder="Business email" class="border-2 border-gray-300 bg-white h-10 px-5 w-full rounded-lg text-sm focus:outline-none" required>
+            </div>
+            <div class="mb-4">
+                <input type="tel" name="phone" placeholder="Phone number" class="border-2 border-gray-300 bg-white h-10 px-5 w-full rounded-lg text-sm focus:outline-none" required>
+            </div>
+            <div class="mb-6">
+                <textarea name="description" placeholder="What else should we know?" class="border-2 border-gray-300 bg-white h-20 px-5 w-full rounded-lg text-sm focus:outline-none" required></textarea>
+            </div>
+        
+			<div class="button-group">
+				<button type="button" class="back-btn" onclick="goToVariant('variant-2')">Back</button>
+	            <button type="submit" class="next-btn">Submit</button>
+			</div>
+            </div>
+			<div id="feedbackContent" style="display: none;">
+                <div id="feedbackMessage">
+                    <p>Votre soumission a été réussie ! 🎉</p>
+                    <button onclick="closeFeedback()">OK</button>
+                </div>
+            <div id="errorMessage" style="display: none;">
+                <p>Une erreur s'est produite lors de la soumission. 😢 Veuillez réessayer.</p>
+                <button onclick="closeError()">OK</button>
+            </div>
+            </div>
+        </form>
+    </div>
+
+<script>
+    // Objet pour stocker les données de toutes les variantes
+    var formData = {
+        interests: [],
+        businessInfo: {},
+        personalInfo: {}
+    };
+    let interests = [];
+    function toggle(btn) {
+        btn.classList.toggle('btn-active');
+        const interest = btn.textContent;
+        if (interests.includes(interest)) {
+            interests = interests.filter(i => i !== interest); // Retire l'intérêt
+        } else {
+            interests.push(interest); // Ajoute l'intérêt
+        }
+    }
+
+    function collectDataAndGoToVariant(variantId) {
+        if (variantId === 'variant-2') {
+            formData.interests = Array.from(document.querySelectorAll('#variant-1 .btn-active')).map(function(button) {
+                return button.innerText.trim();
+            });
+        } else if (variantId === 'variant-3') {
+            formData.businessInfo = {
+                sector: document.getElementById('sector').value,
+                employees: document.getElementById('employees').value
+            };
+        }
+        goToVariant(variantId);
+    }
+
+    function goToVariant(variantId) {
+        document.querySelectorAll('.container').forEach(function(variant) {
+            variant.style.display = 'none';
+        });
+        document.getElementById(variantId).style.display = 'block';
+    }
+	/*function closeFeedback() {
+	    document.getElementById('feedbackMessage').style.display = 'none';
+	    // Optionnel : réafficher le formulaire ou le réinitialiser
+	    //document.getElementById('contactForm').style.display = 'block';
+	    document.getElementById('contactForm').reset();
+}*/
+function closeFeedback() {
+        document.getElementById('feedbackContent').style.display = 'none';
+        document.getElementById('formContent').style.display = 'block';
+        //document.getElementById('contactForm').reset();
+        goToVariant('variant-1');
+        // Ici, vous pouvez ajouter une logique pour réafficher le formulaire ou rediriger l'utilisateur
+    }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var formData = {
+        interests: [],
+        businessInfo: {},
+        personalInfo: {}
+    };
+
+    document.querySelectorAll('.btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            toggleInterest(button);
+        });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        collectFormData();
+        submitForm();
+    });
+
+    function toggleInterest(button) {
+        const interest = button.textContent.trim();
+        const index = formData.interests.indexOf(interest);
+        if (index > -1) {
+            formData.interests.splice(index, 1);
+            button.classList.remove('btn-active');
+        } else {
+            formData.interests.push(interest);
+            button.classList.add('btn-active');
+        }
+    }
+
+    function collectFormData() {
+
+        const interestsAsString = formData.interests.join(", ");
+
+        formData.businessInfo = {
+            sector: document.getElementById('sector').value,
+            employees: document.getElementById('employees').value
+        };
+        formData.personalInfo = {
+            firstName: document.querySelector('[name="firstName"]').value,
+            lastName: document.querySelector('[name="lastName"]').value,
+            mail: document.querySelector('[name="mail"]').value,
+            phone: document.querySelector('[name="phone"]').value,
+            description: document.querySelector('[name="description"]').value
+        };
+    }
+
+    function submitForm() {
+        console.log('Soumission du formulaire avec:', formData);
+        const url = 'http://localhost:3000/submit';
+        fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json(); // Convertit la réponse en JSON.
+        })
+        .then(data => {
+            console.log('Successtestmtf:', data);
+            showFeedbackMessage();
+            
+            //document.getElementById('contactForm').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('errorMessage').style.display = 'block';
+        });
+
+    }
+    function showFeedbackMessage() {
+    /*console.log("test");
+    document.querySelectorAll('.container').forEach(function(variant) {
+        variant.style.display = 'none'; // Cache tous les containers
+    });*/
+    document.getElementById('feedbackContent').style.display = 'block'; // Affiche le message de feedback
+    document.getElementById('formContent').style.display = 'none';
+    
+}
+    
+});
+
+</script>
+</body>
+</html>

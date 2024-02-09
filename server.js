@@ -20,6 +20,10 @@ const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
 // Middleware pour parser le corps des requêtes en JSON
 app.use(cors());
 app.use(express.json());
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://*.framer.com;");
+    next();
+  });
 
 app.post('/submit', (req, res) => {
     console.log(req.body); // Affiche tout le corps de la requête

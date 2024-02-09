@@ -190,7 +190,7 @@
 			<div id="feedbackContent" style="display: none;">
                 <div id="feedbackMessage">
                     <p>Votre soumission a été réussie ! 🎉</p>
-                    <button onclick="closeFeedback()">OK</button>
+                    <button onclick="closeFeedback(event)">OK</button>
                 </div>
             <div id="errorMessage" style="display: none;">
                 <p>Une erreur s'est produite lors de la soumission. 😢 Veuillez réessayer.</p>
@@ -244,7 +244,10 @@
 	    //document.getElementById('contactForm').style.display = 'block';
 	    document.getElementById('contactForm').reset();
 }*/
-function closeFeedback() {
+function closeFeedback(event) {
+        event.stopPropagation();
+        event.preventDefault(); // Cela empêche la soumission du formulaire
+        event.stopPropagation(); // Cela empêche l'événement de se propager plus loin dans la hiérarchie des éléments
         document.getElementById('feedbackContent').style.display = 'none';
         document.getElementById('formContent').style.display = 'block';
         //document.getElementById('contactForm').reset();

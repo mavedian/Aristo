@@ -13,7 +13,11 @@
 			    display: flex;
 			    justify-content: space-between; /* Espacer uniformément les boutons */
 			    margin-top: 1rem; /* Espace au-dessus du groupe de boutons */
-			}			
+			}	
+            .bg-transparent {
+    background-color: transparent !important;
+}
+		
 	.back-btn {
 				    display: inline-flex; /* ou `flex` selon votre mise en page */
 				    align-items: center;
@@ -114,14 +118,14 @@
 				.form-label + .form-control {
     margin-bottom: 2rem; /* ajustez la valeur de marge comme nécessaire */
 }
-    </style>
+    </style>   
 </head>
-<body class="bg-gray-100">
+<body class="bg-transparent">
     <!-- Page 1-->
     <div id="variant-1" class="container">
         <div class="flex flex-col gap-2 mb-5">
             <!-- Boutons avec gestion du toggle pour les intérêts -->
-            <button type="button" class="btn" onclick="toggle(this)">HEALTH CARdzdzdE</button>
+            <button type="button" class="btn" onclick="toggle(this)">HEALTH CARE</button>
             <button type="button" class="btn" onclick="toggle(this)">DATA ANALYSIS</button>
             <button type="button" class="btn" onclick="toggle(this)">CUSTOMER JOURNEY</button>
             <button type="button" class="btn" onclick="toggle(this)">USER TRAINING</button>

@@ -393,6 +393,10 @@ function closeFeedback(event) {
         document.getElementById('formContent').style.display = 'block';
         //document.getElementById('contactForm').reset();
         goToVariant('variant-1');
+        document.getElementById('variant-1').style.display = 'block'; // Assurez-vous que le formulaire est à nouveau visible
+    document.querySelector('.step-indicator').style.display = 'flex'; // Réaffiche l'indicateur d'étape
+    // Réinitialisez l'indicateur d'étape à l'étape 1
+    updateStepIndicator('variant-1');
         // Ici, vous pouvez ajouter une logique pour réafficher le formulaire ou rediriger l'utilisateur
     }
 

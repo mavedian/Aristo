@@ -1,2 +1,0 @@
-# Aristo
-Formulaire aristo

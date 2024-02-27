@@ -172,18 +172,18 @@
         <form id="contactForm">
             <div class="mb-4">
                 <div class="flex gap-4">
-                    <input type="text" name="firstName" placeholder="First Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
-                    <input type="text" name="lastName" placeholder="Last Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
+                    <input type="text" name="firstname" placeholder="First Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
+                    <input type="text" name="lastname" placeholder="Last Name" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none w-full" required>
                 </div>
             </div>
             <div class="mb-4">
-                <input type="email" name="mail" placeholder="Business email" class="border-2 border-gray-300 bg-white h-10 px-5 w-full rounded-lg text-sm focus:outline-none" required>
+                <input type="email" name="email" placeholder="Business email" class="border-2 border-gray-300 bg-white h-10 px-5 w-full rounded-lg text-sm focus:outline-none" required>
             </div>
             <div class="mb-4">
                 <input type="tel" name="phone" placeholder="Phone number" class="border-2 border-gray-300 bg-white h-10 px-5 w-full rounded-lg text-sm focus:outline-none" required>
             </div>
             <div class="mb-6">
-                <textarea name="description" placeholder="What else should we know?" class="border-2 border-gray-300 bg-white h-20 px-5 w-full rounded-lg text-sm focus:outline-none" required></textarea>
+                <textarea name="message" placeholder="What else should we know?" class="border-2 border-gray-300 bg-white h-20 px-5 w-full rounded-lg text-sm focus:outline-none" required></textarea>
             </div>
         
 			<div class="button-group">
@@ -299,11 +299,11 @@ document.addEventListener('DOMContentLoaded', function() {
             employees: document.getElementById('employees').value
         };
         formData.personalInfo = {
-            firstName: document.querySelector('[name="firstName"]').value,
-            lastName: document.querySelector('[name="lastName"]').value,
-            mail: document.querySelector('[name="mail"]').value,
+            firstName: document.querySelector('[name="firstname"]').value,
+            lastName: document.querySelector('[name="lastname"]').value,
+            email: document.querySelector('[name="email"]').value,
             phone: document.querySelector('[name="phone"]').value,
-            description: document.querySelector('[name="description"]').value
+            message: document.querySelector('[name="message"]').value
         };
     }
 

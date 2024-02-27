@@ -65,7 +65,7 @@
             display: flex;
             justify-content: center;
             position: relative;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             width: 100%;
             height: 24px;
         }
@@ -170,6 +170,13 @@
 			    height: auto; /* Ou définir une hauteur fixe plus petite */
 			    padding: 0.4rem 0.75rem; /* Ajuster le padding pour conserver la proportion */
 			}
+            .header-text h2 {
+            text-align: center; /* Centre le texte horizontalement */
+            font-weight: bold; /* Met le texte en gras */
+            color: #FF833D; /* Couleur du texte, choisissez ce qui correspond à votre design */
+            margin-bottom: 20px; /* Espace en dessous du texte */
+            /* Ajoutez des styles supplémentaires pour la taille de la police, l'espacement des lettres, etc., selon vos besoins */
+        }
 		
         .next-btn {
             display: flex;
@@ -242,6 +249,9 @@
                 <img class="step-image step1" src="img/step1.svg" /> <!-- L'image pour l'étape 1 -->
                 <img class="step-image step2" src="img/step2.svg" /> <!-- L'image pour l'étape 2 -->
                 <img class="step-image step3" src="img/step3.svg" /> <!-- L'image pour l'étape 3 -->
+            </div>
+            <div class="header-text" id="headerText">
+                <h2>Tell us about You</h2>
             </div>
     <div id="variant-1" class="container">
         <div class="flex flex-col gap-2 mb-5">
@@ -394,9 +404,10 @@ function closeFeedback(event) {
         //document.getElementById('contactForm').reset();
         goToVariant('variant-1');
         document.getElementById('variant-1').style.display = 'block'; // Assurez-vous que le formulaire est à nouveau visible
-    document.querySelector('.step-indicator').style.display = 'flex'; // Réaffiche l'indicateur d'étape
+        document.querySelector('.step-indicator').style.display = 'flex'; // Réaffiche l'indicateur d'étape
+        document.getElementById('headerText').style.display = 'block';
     // Réinitialisez l'indicateur d'étape à l'étape 1
-    updateStepIndicator('variant-1');
+        updateStepIndicator('variant-1');
         // Ici, vous pouvez ajouter une logique pour réafficher le formulaire ou rediriger l'utilisateur
     }
 
@@ -483,6 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('feedbackContent').style.display = 'block'; // Affiche le message de feedback
     document.getElementById('formContent').style.display = 'none';
     document.querySelector('.step-indicator').style.display = 'none';
+    document.getElementById('headerText').style.display = 'none';
     
 }
     

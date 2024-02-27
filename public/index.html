@@ -16,9 +16,83 @@
 			}	
             .bg-transparent {
     background-color: transparent !important;
-}
+    }
+        .component-step {
+            margin: 0 auto; /* Centre le composant */
+            margin-bottom: 20px; /* Espace en dessous du composant */
+            width: 142px;
+            height: 24px;
+        }
+
+        .component-step .overlap-group {
+            position: relative;
+            height: 24px;
+        }
+
+        .component-step .vector {
+            position: absolute;
+            width: 140px;
+            height: 1px;
+            top: 12px;
+            left: 0;
+            object-fit: cover;
+        }
+
+        .component-step .img {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 0;
+            left: 0;
+        }
+
+        .component-step .vector-2 {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 3px;
+            left: 65px;
+        }
+
+        .component-step .vector-3 {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 3px;
+            left: 124px;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+            height: 24px;
+        }
+
+        .step-image {
+            opacity: 0; /* Les images non actives sont moins visibles */
+            position: absolute; /* Positionnement absolu par rapport à leur parent .step-indicator */
+        }
+
+        .step1.active {
+            opacity: 1; /* L'image active est pleinement visible */
+            justify-content: center; /* Positionné tout à gauche */
+        }
+
+        .step2.active {
+            opacity: 1;
+            justify-content: center; /* Centré */
+            /*transform: translateX(-50%);*/ /* Décalage de la moitié de sa propre largeur pour le centrer vraiment */
+        }
+
+        .step3.active {
+            opacity: 1;
+            justify-content: center; /* Positionné tout à droite */
+        }
+
 		
-	.back-btn {
+	    .back-btn {
 				    display: inline-flex; /* ou `flex` selon votre mise en page */
 				    align-items: center;
 				    justify-content: center;
@@ -156,6 +230,19 @@
 </head>
 <body class="bg-transparent">
     <!-- Page 1-->
+            <!--<div class="component-step">
+                <div class="overlap-group">
+                    <img class="vector" src="img/Vector-3.svg" />
+                    <img class="img" src="img/Vector-2.svg" />
+                    <img class="vector-2" src="img/Vector-1.svg" />
+                    <img class="vector-3" src="img/Vector.svg" />
+                </div>
+            </div>-->
+            <div class="step-indicator">
+                <img class="step-image step1" src="img/step1.svg" /> <!-- L'image pour l'étape 1 -->
+                <img class="step-image step2" src="img/step2.svg" /> <!-- L'image pour l'étape 2 -->
+                <img class="step-image step3" src="img/step3.svg" /> <!-- L'image pour l'étape 3 -->
+            </div>
     <div id="variant-1" class="container">
         <div class="flex flex-col gap-2 mb-5">
             <!-- Boutons avec gestion du toggle pour les intérêts -->
@@ -275,7 +362,23 @@
             variant.style.display = 'none';
         });
         document.getElementById(variantId).style.display = 'block';
+        updateStepIndicator(variantId);
     }
+    function updateStepIndicator(variantId) {
+    // Enlever la classe 'active' de tous les indicateurs
+    document.querySelectorAll('.step-image').forEach(function(img) {
+        img.classList.remove('active');
+    });
+    // Ajouter la classe 'active' à l'indicateur de l'étape actuelle
+    if(variantId === 'variant-1') {
+        document.querySelector('.step1').classList.add('active');
+    } else if(variantId === 'variant-2') {
+        document.querySelector('.step2').classList.add('active');
+    } else if(variantId === 'variant-3') {
+        document.querySelector('.step3').classList.add('active');
+    }
+}
+   
 	/*function closeFeedback() {
 	    document.getElementById('feedbackMessage').style.display = 'none';
 	    // Optionnel : réafficher le formulaire ou le réinitialiser
@@ -299,6 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         businessInfo: {},
         personalInfo: {}
     };
+    updateStepIndicator('variant-1');
 
     document.querySelectorAll('.btn').forEach(function(button) {
         button.addEventListener('click', function() {
@@ -374,6 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });*/
     document.getElementById('feedbackContent').style.display = 'block'; // Affiche le message de feedback
     document.getElementById('formContent').style.display = 'none';
+    document.querySelector('.step-indicator').style.display = 'none';
     
 }
     

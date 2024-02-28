@@ -1,17 +1,8 @@
 // api/submit.js
-require('dotenv').config();
 const axios = require('axios');
 const portalId = process.env.HUBSPOT_PORTAL_ID;
 const formId = process.env.HUBSPOT_FORM_ID;
-const express = require('express');
-const app = express();
-const path = require('path');
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://framer.com https://framerusercontent.com https://*.framer.com https://*.framerusercontent.com;");
-    next();
-  });
+
 module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
@@ -53,8 +44,3 @@ module.exports = async (req, res) => {
         res.status(500).json({ error: "Erreur lors de l'envoi des données à HubSpot." });
     }
 };
-// Définissez le port pour votre serveur
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Serveur démarré sur le port ${port}`);
-});

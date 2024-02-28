@@ -7,6 +7,8 @@ module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
   console.log(req.body);
+  console.log(portalId);
+  console.log(formId);
   //res.status(200).json({ message: 'Réponse de la fonction serverless' });
     
     // Préparez les données pour l'envoi à HubSpot
@@ -28,8 +30,7 @@ module.exports = async (req, res) => {
             "pageName": "Form BDD Aristo"
         }
     };
-    console.log(portalId);
-    console.log(formId);
+ 
 
     try {
         await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, hubspotData, {

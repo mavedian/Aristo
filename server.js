@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 
 });*/
 
-app.post('/submit', async (req, res) => {
+/*app.post('/submit', async (req, res) => {
     const { interests, businessInfo, personalInfo } = req.body;
     console.log(req.body);
     res.status(200).json({ message: "Réponse réussie" });
@@ -102,7 +102,7 @@ app.post('/submit', async (req, res) => {
         // En cas d'erreur, envoyez une réponse avec le statut d'erreur
         res.status(500).json({ error: "Erreur lors de l'envoi des données à HubSpot." });
     }
-});
+});*/
 
 // Définissez le port pour votre serveur
 const port = process.env.PORT || 3000;

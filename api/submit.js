@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
   console.log(req.body);
-  res.status(200).json({ message: 'Réponse de la fonction serverless' });
+  //res.status(200).json({ message: 'Réponse de la fonction serverless' });
     
     // Préparez les données pour l'envoi à HubSpot
     const hubspotData = {

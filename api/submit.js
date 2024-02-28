@@ -1,10 +1,13 @@
 // api/submit.js
 const axios = require('axios');
+const portalId = process.env.HUBSPOT_PORTAL_ID;
+const formId = process.env.HUBSPOT_FORM_ID;
+
 module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
   console.log(req.body);
-  //res.status(200).json({ message: 'Réponse de la fonction serverless' });
+  res.status(200).json({ message: 'Réponse de la fonction serverless' });
     
     // Préparez les données pour l'envoi à HubSpot
     const hubspotData = {
@@ -27,7 +30,7 @@ module.exports = async (req, res) => {
     };
 
     try {
-        const response = await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_ID}`, hubspotData, {
+        const response = await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, hubspotData, {
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -1,7 +1,7 @@
 // api/submit.js
 const axios = require('axios');
-const portalId = process.env.HUBSPOT_PORTAL_ID;
-const formId = process.env.HUBSPOT_FORM_ID;
+const portalId = "143937373";
+const formId = "a7065899-7249-4a94-933f-4aa64a0b0349";
 
 module.exports = async (req, res) => {
   // Votre logique ici...

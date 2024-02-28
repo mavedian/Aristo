@@ -28,6 +28,8 @@ module.exports = async (req, res) => {
             "pageName": "Form BDD Aristo"
         }
     };
+    console.log(portalId);
+    console.log(formId);
 
     try {
         await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, hubspotData, {

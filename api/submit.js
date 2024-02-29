@@ -6,9 +6,7 @@ const formId = "a7065899-7249-4a94-933f-4aa64a0b0349";
 module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
-  console.log(req.body);
-  console.log(portalId);
-  console.log(formId);
+  
   //res.status(200).json({ message: 'Réponse de la fonction serverless' });
     
     // Préparez les données pour l'envoi à HubSpot

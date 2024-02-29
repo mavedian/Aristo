@@ -21,7 +21,9 @@ app.use((req, res, next) => {
     res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://framer.com https://framerusercontent.com https://*.framer.com https://*.framerusercontent.com;");
     next();
   });
-  
+  console.log(req.body);
+  console.log(portalId);
+  console.log(formId);  
 
 
 // Définissez le port pour votre serveur

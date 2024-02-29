@@ -17,9 +17,9 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 // Middleware pour parser le corps des requêtes en JSON
 app.use(cors({
-    // Définissez les origines que vous souhaitez autoriser
-    origin: '*', // Ou une liste spécifique d'origines 'https://mondomaine.com'
+  origin: '*', // Changez cela pour des origines spécifiques au besoin
 }));
+
 app.use(express.json());
 app.use((req, res, next) => {
     res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://framer.com https://framerusercontent.com https://*.framer.com https://*.framerusercontent.com;");
@@ -28,7 +28,10 @@ app.use((req, res, next) => {
 
 
 
-module.exports = async (req, res) => {
+//module.exports = async (req, res) => {
+  app.post('/api/submit', async (req, res) => {
+    console.log(portalId);
+    console.log(formId);
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
   
@@ -55,8 +58,8 @@ module.exports = async (req, res) => {
     };
 
     //console.log(req.body);
-    console.log(portalId);
-    console.log(formId);  
+    //console.log(portalId);
+    //console.log(formId);  
 
     try {
         await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, hubspotData, {
@@ -72,7 +75,7 @@ module.exports = async (req, res) => {
         // En cas d'erreur, envoyez une réponse avec le statut d'erreur
         res.status(500).json({ error: "Erreur lors de l'envoi des données à HubSpot." });
     }
-};
+});
 
 // Définissez le port pour votre serveur
 const port = process.env.PORT || 3000;

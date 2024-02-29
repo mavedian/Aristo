@@ -373,6 +373,7 @@
         });
         document.getElementById(variantId).style.display = 'block';
         updateStepIndicator(variantId);
+        updateHeaderText(variantId);
     }
     function updateStepIndicator(variantId) {
     // Enlever la classe 'active' de tous les indicateurs
@@ -388,6 +389,23 @@
         document.querySelector('.step3').classList.add('active');
     }
 }
+    function updateHeaderText(variantId) {
+        var headerText = '';
+        switch(variantId) {
+            case 'variant-1':
+                headerText = 'What are you interested in';
+                break;
+            case 'variant-2':
+                headerText = 'Tell us about your business';
+                break;
+            case 'variant-3':
+                headerText = 'Tell us about you';
+                break;
+            default:
+                headerText = 'What are you interested in'; // Texte par défaut
+        }
+        document.getElementById('headerText').innerHTML = '<h2>' + headerText + '</h2>';
+    }
    
 	/*function closeFeedback() {
 	    document.getElementById('feedbackMessage').style.display = 'none';

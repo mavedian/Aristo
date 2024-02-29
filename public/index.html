@@ -174,7 +174,7 @@
             text-align: center; /* Centre le texte horizontalement */
             font-weight: bold; /* Met le texte en gras */
             color: #FF833D; /* Couleur du texte, choisissez ce qui correspond à votre design */
-            margin-bottom: 20px; /* Espace en dessous du texte */
+            margin-bottom: 10px; /* Espace en dessous du texte */
             /* Ajoutez des styles supplémentaires pour la taille de la police, l'espacement des lettres, etc., selon vos besoins */
         }
 		
@@ -236,7 +236,8 @@
     text-align: center;
     font-size: 0.75rem; /* Rend le texte plus petit */
     color: #555;
-    margin-top: 0.25rem; /* Rapproche le texte du titre */
+    margin-top: 0.5rem;
+    margin-bottom: 2rem; /* Rapproche le texte du titre */
 }
 
     </style>   
@@ -258,7 +259,7 @@
             </div>
             <div class="header-text" id="headerText">
                 <h2>What are you interested in</h2>
-                <p id="subHeaderText" class="sub-header-text">select all that apply</p>
+                <p class="sub-header-text" id="subHeaderText">select all that apply</p>
             </div>
             </div>
     <div id="variant-1" class="container">
@@ -382,6 +383,7 @@
         document.getElementById(variantId).style.display = 'block';
         updateStepIndicator(variantId);
         updateHeaderText(variantId);
+        //updatesubHeaderText(variantId);
 
             // Gestion de l'affichage du sous-titre pour 'variant-1'
     if(variantId === 'variant-1') {
@@ -405,22 +407,28 @@
     }
 }
     function updateHeaderText(variantId) {
-        var headerText = '';
+        var headerTextElement = document.querySelector('#headerText h2');
+        var subHeaderTextElement = document.getElementById('subHeaderText');
+        //var headerText = '';
         switch(variantId) {
             case 'variant-1':
-                headerText = 'What are you interested in';
+                headerTextElement.textContent = 'What are you interested in';
+                subHeaderTextElement.textContent = 'select all that apply';
                 break;
             case 'variant-2':
-                headerText = 'Tell us about your business';
+                headerTextElement.textContent = 'Tell us about your business';
+                subHeaderTextElement.textContent = '';
                 break;
             case 'variant-3':
-                headerText = 'Tell us about you';
+                headerTextElement.textContent = 'Tell us about you';
+                subHeaderTextElement.textContent = '';
                 break;
             default:
-                headerText = 'What are you interested in';
+                headerTextElement.textContent = 'What are you interested in';
+                subHeaderTextElement.textContent = 'select all that apply';
         }
-        document.getElementById('headerText').innerHTML = '<h2>' + headerText + '</h2>';
-        document.getElementById('subHeaderText').textContent = 'select all that apply';
+        //document.getElementById('headerText').innerHTML = '<h2>' + headerText + '</h2>';
+        //document.getElementById('subHeaderText').textContent = 'select all that apply';
     }
    
 	/*function closeFeedback() {

@@ -31,9 +31,7 @@ app.use((req, res, next) => {
 module.exports = async (req, res) => {
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;
-  console.log(req.body);
-  console.log(portalId);
-  console.log(formId);  
+  
   //res.status(200).json({ message: 'Réponse de la fonction serverless' });
     
     // Préparez les données pour l'envoi à HubSpot
@@ -78,3 +76,6 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serveur démarré sur le port ${port}`);
 });
+console.log(req.body);
+console.log(portalId);
+console.log(formId);  

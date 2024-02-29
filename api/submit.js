@@ -53,7 +53,10 @@ module.exports = async (req, res) => {
             "pageName": "Form BDD Aristo"
         }
     };
- 
+    
+    console.log(req.body);
+    console.log(portalId);
+    console.log(formId);  
 
     try {
         await axios.post(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, hubspotData, {
@@ -76,6 +79,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serveur démarré sur le port ${port}`);
 });
-console.log(req.body);
-console.log(portalId);
-console.log(formId);  

@@ -1,5 +1,5 @@
 // Chargez les variables d'environnement à partir du fichier .env
-require('dotenv').config();
+/*require('dotenv').config();
 //console.log(process.env)
 const express = require('express');
 const cors = require('cors');
@@ -21,13 +21,11 @@ app.use((req, res, next) => {
     res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://framer.com https://framerusercontent.com https://*.framer.com https://*.framerusercontent.com;");
     next();
   });
-  console.log(req.body);
-  console.log(portalId);
-  console.log(formId);  
+
 
 
 // Définissez le port pour votre serveur
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serveur démarré sur le port ${port}`);
-});
+});*/

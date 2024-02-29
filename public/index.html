@@ -234,9 +234,9 @@
 }
 .sub-header-text {
     text-align: center;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.75rem; /* Rend le texte plus petit */
     color: #555;
-    margin-top: 4px;
+    margin-top: 0.25rem; /* Rapproche le texte du titre */
 }
 
     </style>   
@@ -382,7 +382,14 @@
         document.getElementById(variantId).style.display = 'block';
         updateStepIndicator(variantId);
         updateHeaderText(variantId);
+
+            // Gestion de l'affichage du sous-titre pour 'variant-1'
+    if(variantId === 'variant-1') {
+        document.getElementById('subHeaderText').style.display = 'block'; // Assurez-vous que le sous-titre est visible
+    } else {
+        document.getElementById('subHeaderText').style.display = 'none'; // Cache le sous-titre pour les autres étapes
     }
+}
     function updateStepIndicator(variantId) {
     // Enlever la classe 'active' de tous les indicateurs
     document.querySelectorAll('.step-image').forEach(function(img) {
@@ -402,22 +409,18 @@
         switch(variantId) {
             case 'variant-1':
                 headerText = 'What are you interested in';
-                subHeaderText = 'select all that apply';
                 break;
             case 'variant-2':
                 headerText = 'Tell us about your business';
-                subHeaderText = '';
                 break;
             case 'variant-3':
                 headerText = 'Tell us about you';
-                subHeaderText = '';
                 break;
             default:
                 headerText = 'What are you interested in';
-                subHeaderText = ''; // Texte par défaut
         }
         document.getElementById('headerText').innerHTML = '<h2>' + headerText + '</h2>';
-        document.getElementById('subHeaderText').textContent = subHeaderText;
+        document.getElementById('subHeaderText').textContent = 'select all that apply';
     }
    
 	/*function closeFeedback() {

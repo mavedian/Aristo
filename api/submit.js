@@ -33,8 +33,8 @@ app.use((req, res, next) => {
     //console.log(req.body);
     //console.log(portalId);
     //console.log(formId);
-    console.log('Portal ID:', process.env.PORTAL_ID);
-    console.log('Form ID:', process.env.FORM_ID);
+    console.log('Portal ID:', process.env.HUBSPOT_PORTAL_ID);
+    console.log('Form ID:', process.env.HUBSPOT_FORM_ID);
 
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;

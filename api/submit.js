@@ -53,8 +53,8 @@ module.exports = async (req, res) => {
             "pageName": "Form BDD Aristo"
         }
     };
-    
-    console.log(req.body);
+
+    //console.log(req.body);
     console.log(portalId);
     console.log(formId);  
 

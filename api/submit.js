@@ -31,10 +31,10 @@ app.use((req, res, next) => {
 //module.exports = async (req, res) => {
   app.post('/api/submit', async (req, res) => {
     //console.log(req.body);
-    //console.log(portalId);
-    //console.log(formId);
-    console.log('Portal ID:', process.env.HUBSPOT_PORTAL_ID);
-    console.log('Form ID:', process.env.HUBSPOT_FORM_ID);
+    console.log(portalId);
+    console.log(formId);
+    //console.log('Portal ID:', process.env.HUBSPOT_PORTAL_ID);
+    //console.log('Form ID:', process.env.HUBSPOT_FORM_ID);
 
   // Votre logique ici...
   const { interests, businessInfo, personalInfo } = req.body;

@@ -150,13 +150,13 @@
 			    /*font-size: 1.25rem; /* Augmente la taille de la police pour les sélections */
                 display: flex;
                 padding-right: 2rem;
-                background-color: transparent;
 			    padding: 0.75rem; /* Padding intérieur plus grand pour les sélections */
 			    border: 1px solid #D9CAA7; /* Bordure des sélections */
 			    border-radius: 0.5rem; /* Bordures arrondies pour les sélections */
 			    margin-bottom: 1rem; /* Espace en dessous des sélections */
                 width: 100%; /* Ils prendront toute la largeur de leur conteneur */
                 box-sizing: border-box; /* Assurez-vous que padding et border sont inclus dans la largeur */
+                background-color: transparent;
 			}
 						/* Réduire l'espace au-dessus du bouton "Submit" */
 			#contactForm .mb-6 {
@@ -293,8 +293,11 @@
             <label for="sector" class="form-label">Life Science sector</label>
             <select id="sector" class="form-control mb-4">
                 <option>Dermocosmetics</option>
-                <option>Metier 2</option>
-                <option>Metier 3</option>
+                <option>Pharmaceutical</option>
+                <option>Biotechnology</option>
+                <option>Animal health</option>
+                <option>Medical Device</option>
+                <option>OTHER</option>
                 <!-- Autres options ici -->
             </select>
 				</div>
@@ -303,9 +306,10 @@
             <label for="employees" class="form-label">Number of employees</label>
             <select id="employees" class="form-control mb-4">
                 <option>1 to 50</option>
-                <option>50 to 100</option>
-                <option>100 to 500</option>
-                <option>more than 500</option>
+                <option>51 to 100</option>
+                <option>101 to 500</option>
+                <option>501 to 1000</option>
+                <option>more than 1000</option>
                 <!-- Autres options ici -->
             </select>
         </div>

@@ -133,12 +133,14 @@
             border: none;
         }
 		.form-label {
-            display: flex;
-			font-weight: bold; /* Met le texte en gras */
-			font-size: 1rem; /* Augmente la taille de la police */
-			margin-bottom: 0.5rem; /* Espace en dessous des labels */
-            width: 100%; /* Ils prendront toute la largeur de leur conteneur */
-            box-sizing: border-box; /* Assurez-vous que padding et border sont inclus dans la largeur */
+            display: block; /* Assurez-vous que le label s'affiche en bloc pour permettre le centrage */
+            text-align: center; /* Centre le texte */
+            font-family: 'Satoshi', sans-serif; /* Applique la police Satoshi */
+            font-size: 0.75rem; /* Ajuste la taille de la police pour correspondre */
+            color: #555; /* Ajuste la couleur du texte si nécessaire */
+            margin-top: 0.5rem; /* Ajuste l'espacement au-dessus selon le besoin */
+            margin-bottom: 1rem; /* Ajuste l'espacement en dessous selon le besoin */
+            width: 100%; /* Prend toute la largeur pour centrer le texte */
 		}
 
 
